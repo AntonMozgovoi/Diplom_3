@@ -1,7 +1,6 @@
 from selenium.webdriver.common.by import By
 
 class MainPageLocators:
-    pass
     ENTER_ACCOUNT = (By.XPATH, '//button[text()="Войти в аккаунт"]') # кнопка "Войти в аккаунт"
     ENTER_RECOVERY_PASSWORD = (By.XPATH, '//*[contains(@Class, "Auth_link") and text()="Восстановить пароль"]')
     FIELD_INPUT_EMAIL = (By.XPATH, '//input[@Class="text input__textfield text_type_main-default"]')
