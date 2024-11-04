@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 
 from conftest import driver
 from data import TestData
-from locators import Header, OrderFeed, MainPageLocators
+from locators import Header, OrderFeed, MainPageLocators, ConstructorLocators
 from pages.base_page import BasePage
 from pages.main_page import MainPage
 
@@ -98,7 +98,7 @@ class Constructor(BasePage):
 
     def get_list_from_feed(self, driver):   # создание списка номеров заказов за всё время
         list_oder_feed = []
-        for element in driver.find_elements(By.XPATH, '//*[@Class="text text_type_digits-default"]'):
+        for element in driver.find_elements(ConstructorLocators.LIST_ORDER):
             list_oder_feed.append(element.text)
         return list_oder_feed
 

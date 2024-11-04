@@ -1,3 +1,5 @@
+from lib2to3.pgen2 import driver
+
 from selenium.webdriver.common.by import By
 from data import TestData
 from pages.base_page import BasePage
@@ -55,3 +57,6 @@ class MainPage(BasePage):
 
     def find_element_logout(self):
         self.wait_and_find_element(MainPageLocators.BUTTON_LOGIN)
+
+    def get_input_password_field(self, driver):
+        driver.find_element(By.NAME, "Пароль")

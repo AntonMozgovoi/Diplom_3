@@ -13,6 +13,8 @@ class MainPageLocators:
     BUTTON_LOGIN = (By.XPATH, '//button[text()="Войти"]')
     HISTORY_ORDER_LINK = (By.XPATH, '//*[text()="История заказов"]')
     LOGOUT_LINK = (By.XPATH, '//*[text()="Выход"]')
+    INPUT_PASSWORD_FIELD = (By.NAME, "Пароль")
+
 class Header:
     CONSTRUCTOR = (By.XPATH, '//*[text()="Конструктор"]')
     ORDER_LIST = (By.XPATH, '//*[text()="Лента Заказов"]')
@@ -35,3 +37,6 @@ class OrderFeed:
     COUNTER_FOR_ALL_TIME = (By.XPATH, '//*[contains(@Class,"OrderFeed_number")]')
     COUNTER_ORDER_TODAY = (By.XPATH, '//*[@id ="root"]/div/main/div/div/div/div[3]/p[2]')
     NUMBER_OF_ORDER_IN_WORK = (By.XPATH, '//*[@id="root"]/div/main/div/div/div/div[1]/ul[2]/li')
+
+class ConstructorLocators:
+    LIST_ORDER = (By.XPATH, '//*[@Class="text text_type_digits-default"]')
