@@ -2,8 +2,8 @@ import allure
 from selenium.webdriver.common.by import By
 from data import Urls
 from locators import MainPageLocators
-from pages.basepage import BasePage
-from pages.mainpage import MainPage
+from pages.base_page import BasePage
+from pages.main_page import MainPage
 
 
 class TestLogoScooter:

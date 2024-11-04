@@ -2,7 +2,7 @@ import time
 
 import allure
 
-from pages.constructor import Constructor
+from pages.constructor_page import Constructor
 
 
 class TestOrderFeed:

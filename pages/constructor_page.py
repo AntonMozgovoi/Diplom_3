@@ -5,8 +5,8 @@ from selenium.webdriver.common.by import By
 from conftest import driver
 from data import TestData
 from locators import Header, OrderFeed, MainPageLocators
-from pages.basepage import BasePage
-from pages.mainpage import MainPage
+from pages.base_page import BasePage
+from pages.main_page import MainPage
 
 
 class Constructor(BasePage):

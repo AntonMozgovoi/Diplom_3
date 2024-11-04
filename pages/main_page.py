@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 from data import TestData
-from pages.basepage import BasePage
+from pages.base_page import BasePage
 from locators import MainPageLocators
 
 

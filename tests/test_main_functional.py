@@ -2,8 +2,8 @@ import time
 import allure
 from data import Urls
 from locators import OrderFeed
-from pages.constructor import Constructor
-from pages.mainpage import MainPage
+from pages.constructor_page import Constructor
+from pages.main_page import MainPage
 
 
 class TestConstructor:

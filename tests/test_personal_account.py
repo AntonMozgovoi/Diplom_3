@@ -1,7 +1,7 @@
 import allure
 from data import Urls
 from locators import MainPageLocators
-from pages.mainpage import MainPage
+from pages.main_page import MainPage
 
 class TestPersonalAccount:
     @allure.title('Проверка перехода в личный кабинет')
