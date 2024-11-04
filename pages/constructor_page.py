@@ -1,7 +1,6 @@
 import requests
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
-
 from conftest import driver
 from data import TestData
 from locators import Header, OrderFeed, MainPageLocators, ConstructorLocators
@@ -11,7 +10,7 @@ from pages.main_page import MainPage
 
 class Constructor(BasePage):
     def transition_to_constructor(self):  # переход на страницу конструктор
-        const = self.wait_and_find_element(Header.CONSTRUCTOR)
+        const = self.wait_and_find_element(ConstructorLocators.CONSTRUCTOR)
         const.click()
 
     def transition_to_order_list(self): # переход на страницу заказов
@@ -31,13 +30,13 @@ class Constructor(BasePage):
         close_icon.click()
 
     def constructor_count(self, driver):
-        sauce = self.wait_and_find_element(OrderFeed.INGREDIENT)
-        constructor = self.wait_and_find_element(OrderFeed.CONSTRUCTOR)
+        sauce = self.wait_and_find_element(ConstructorLocators.INGREDIENT)
+        constructor = self.wait_and_find_element(ConstructorLocators.CONSTRUCTOR)
         action_chains = ActionChains(driver)
         action_chains.drag_and_drop(sauce, constructor).perform()
 
     def get_counter(self):
-        count = self.wait_and_find_element(OrderFeed.COUNTER).text
+        count = self.wait_and_find_element(ConstructorLocators.COUNTER).text
         return count
 
     def authtorisation(self): # авторизация
@@ -51,8 +50,8 @@ class Constructor(BasePage):
         auth.click()
 
     def add_buns(self, driver):
-        sauce = self.wait_and_find_element(OrderFeed.BUNS)
-        constructor = self.wait_and_find_element(OrderFeed.CONSTRUCTOR)
+        sauce = self.wait_and_find_element(ConstructorLocators.BUNS)
+        constructor = self.wait_and_find_element(ConstructorLocators.CONSTRUCTOR)
         action_chains = ActionChains(driver)
         action_chains.drag_and_drop(sauce, constructor).perform()
 
@@ -73,8 +72,8 @@ class Constructor(BasePage):
         history.click()
 
     def make_order_flow(self, driver):
-        sauce = self.wait_and_find_element(OrderFeed.BUNS)
-        constructor = self.wait_and_find_element(OrderFeed.CONSTRUCTOR)
+        sauce = self.wait_and_find_element(ConstructorLocators.BUNS)
+        constructor = self.wait_and_find_element(ConstructorLocators.CONSTRUCTOR)
         action_chains = ActionChains(driver)
         action_chains.drag_and_drop(sauce, constructor).perform()
         click_order = self.wait_and_find_element(OrderFeed.BUTTON_ORDER)

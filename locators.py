@@ -23,10 +23,6 @@ class OrderFeed:
     ORDER_IN_HISTORY = (By.XPATH, '//*[@id="root"]/div/main/div/div/ul/li[1]/a')
     MODAL_WINDOW = (By.XPATH, '//*[contains(@Class, "Modal_orderBox")]')
     CROSS = (By.XPATH, '//*[@id="root"]/div/section[2]/div[1]/button')
-    INGREDIENT = (By.XPATH, '//*[@id="root"]/div/main/section[1]/div[2]/ul[2]/a[2]/img')
-    CONSTRUCTOR = (By.XPATH, '//*[@id="root"]/div/main/section[2]/ul/li[1]/div/span/span[1]')
-    COUNTER = (By.XPATH, '//*[@id="root"]/div/main/section[1]/div[2]/ul[2]/a[2]/div[1]/p')
-    BUNS = (By.XPATH, '//*[@id="root"]/div/main/section[1]/div[2]/ul[1]/a[2]/img')
     BUTTON_ORDER = (By.XPATH, '//button[text()="Оформить заказ"]')
     WINDOW_SUCCESS_ORDER = (By.XPATH, '//*[@id="root"]/div/section/div[1]/div')
     ORDER_FROM_FEED = (By.XPATH, '//*[@id="root"]/div/main/div/div/ul/li[1]')
@@ -40,3 +36,7 @@ class OrderFeed:
 
 class ConstructorLocators:
     LIST_ORDER = (By.XPATH, '//*[@Class="text text_type_digits-default"]')
+    INGREDIENT = (By.XPATH, '//*[@id="root"]/div/main/section[1]/div[2]/ul[2]/a[2]/img')
+    CONSTRUCTOR = (By.XPATH, '//*[@id="root"]/div/main/section[2]/ul/li[1]/div/span/span[1]')
+    COUNTER = (By.XPATH, '//*[@id="root"]/div/main/section[1]/div[2]/ul[2]/a[2]/div[1]/p')
+    BUNS = (By.XPATH, '//*[@id="root"]/div/main/section[1]/div[2]/ul[1]/a[2]/img')
