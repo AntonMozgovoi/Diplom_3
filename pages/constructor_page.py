@@ -1,6 +1,7 @@
 import requests
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
+
 from conftest import driver
 from data import TestData
 from locators import Header, OrderFeed, MainPageLocators, ConstructorLocators
@@ -10,7 +11,7 @@ from pages.main_page import MainPage
 
 class Constructor(BasePage):
     def transition_to_constructor(self):  # переход на страницу конструктор
-        const = self.wait_and_find_element(ConstructorLocators.CONSTRUCTOR)
+        const = self.wait_and_find_element(Header.CONSTRUCTOR)
         const.click()
 
     def transition_to_order_list(self): # переход на страницу заказов
@@ -26,7 +27,7 @@ class Constructor(BasePage):
         return modal_window
 
     def close_window(self): # закрытие окна
-        close_icon = self.wait_and_find_element(OrderFeed.CROSS)
+        close_icon = self.wait_and_find_element(ConstructorLocators.CROSS)
         close_icon.click()
 
     def constructor_count(self, driver):
@@ -97,7 +98,7 @@ class Constructor(BasePage):
 
     def get_list_from_feed(self, driver):   # создание списка номеров заказов за всё время
         list_oder_feed = []
-        for element in driver.find_elements(ConstructorLocators.LIST_ORDER):
+        for element in self.wait_and_find_elements(ConstructorLocators.LIST_ORDER):
             list_oder_feed.append(element.text)
         return list_oder_feed
 

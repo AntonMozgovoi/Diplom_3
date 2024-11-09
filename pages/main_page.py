@@ -1,3 +1,4 @@
+from email._header_value_parser import get_attribute
 from lib2to3.pgen2 import driver
 
 from selenium.webdriver.common.by import By
@@ -58,5 +59,3 @@ class MainPage(BasePage):
     def find_element_logout(self):
         self.wait_and_find_element(MainPageLocators.BUTTON_LOGIN)
 
-    def get_input_password_field(self, driver):
-        driver.find_element(By.NAME, "Пароль")

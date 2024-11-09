@@ -7,7 +7,6 @@ from data import Urls
 # def driver():
 #     chrome = webdriver.Chrome()
 #     chrome.get(Urls.MAIN_PAGE)
-#     chrome.maximize_window()
 #     yield chrome
 #     chrome.quit()
 
