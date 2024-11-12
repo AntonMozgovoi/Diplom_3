@@ -1,8 +1,5 @@
 import allure
-from selenium.webdriver.common.by import By
 from data import Urls
-from locators import MainPageLocators
-from pages.base_page import BasePage
 from pages.main_page import MainPage
 
 
@@ -13,7 +10,8 @@ class TestLogoScooter:
         transition = MainPage(driver)
         transition.transition_to_account()
         transition.transition_to_recovery()
-        assert driver.current_url == Urls.RECOV_PASS_PAGE
+        current_url = transition.check_url(driver)
+        assert current_url == Urls.RECOV_PASS_PAGE
 
     @allure.title('Проверка ввода почты')
     @allure.description('ввод почты и клик по кнопке «Восстановить»')
@@ -24,7 +22,8 @@ class TestLogoScooter:
         recover.input_email()
         recover.click_button_recover()
         recover.wait_element()
-        assert driver.current_url == Urls.RESET_PASS_PAGE
+        current_url = recover.check_url(driver)
+        assert current_url == Urls.RESET_PASS_PAGE
 
     @allure.title('Проверка кнопки показать пароль')
     @allure.description('клик по кнопке показать/скрыть пароль делает поле активным — подсвечивает его')
@@ -32,6 +31,5 @@ class TestLogoScooter:
         field = MainPage(driver)
         field.transition_to_account()
         field.select_password_field()
-        input_field = driver.find_element(By.NAME, "Пароль")
-        two = input_field.get_attribute("type")
-        print(two)
+        input_field = field.get_type(driver)
+        assert input_field.get_attribute('type') == 'text'

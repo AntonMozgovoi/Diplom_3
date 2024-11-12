@@ -1,10 +1,6 @@
-import time
 import allure
 from data import Urls
-from locators import OrderFeed
 from pages.constructor_page import Constructor
-from pages.main_page import MainPage
-
 
 class TestConstructor:
     @allure.title('переход по клику на «Конструктор»')
@@ -12,14 +8,17 @@ class TestConstructor:
     def test_transition_constructor(self, driver):
         const = Constructor(driver)
         const.transition_to_constructor()
-        assert driver.current_url == Urls.MAIN_PAGE
+        current_url = const.check_url(driver)
+        assert current_url == Urls.MAIN_PAGE
+
 
     @allure.title('переход по клику на «Лента заказов»')
     @allure.description('Успешный переход на страницу заказов')
     def test_transition_order_list(self, driver):
         feed = Constructor(driver)
         feed.transition_to_order_list()
-        assert driver.current_url == Urls.FEED_ORDER
+        current_url = feed.check_url(driver)
+        assert current_url == Urls.FEED_ORDER
 
     @allure.title('Проверка окна с деталями')
     @allure.description('если кликнуть на ингредиент, появится всплывающее окно с деталями')
@@ -38,7 +37,6 @@ class TestConstructor:
         window.select_order_from_feed()
         window.close_window()
         modal_window = window.get_window()
-        time.sleep(3)
         assert not modal_window.is_displayed()
 
     @allure.title('Проверка каунтера ингридиента')

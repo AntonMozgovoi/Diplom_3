@@ -1,9 +1,7 @@
-from lib2to3.pgen2 import driver
-
 from selenium.webdriver.common.by import By
 
 class MainPageLocators:
-    ENTER_ACCOUNT = (By.XPATH, '//button[text()="Войти в аккаунт"]') # кнопка "Войти в аккаунт"
+    ENTER_ACCOUNT = (By.XPATH, '//button[text()="Войти в аккаунт"]')
     ENTER_RECOVERY_PASSWORD = (By.XPATH, '//*[contains(@Class, "Auth_link") and text()="Восстановить пароль"]')
     FIELD_INPUT_EMAIL = (By.XPATH, '//input[@Class="text input__textfield text_type_main-default"]')
     BUTTON_RECOVER = (By.XPATH, '//button[contains(@Class, "button_button_size_medium") and text()="Восстановить"]')
@@ -22,29 +20,23 @@ class Header:
     ORDER_LIST = (By.XPATH, '//*[text()="Лента Заказов"]')
 
 class OrderFeed:
-    ORDER_IN_HISTORY = (By.XPATH, '//*[@id="root"]/div/main/div/div/ul/li[1]/a')
+
+    ORDER_IN_HISTORY = (By.XPATH, '//*[@class="OrderFeed_list__OLh59"]/child::*[1]')
     MODAL_WINDOW = (By.XPATH, '//*[contains(@Class, "Modal_orderBox")]')
     BUTTON_ORDER = (By.XPATH, '//button[text()="Оформить заказ"]')
-    # WINDOW_SUCCESS_ORDER = (By.XPATH, '//*[@id="root"]/div/section/div[1]/div')
     WINDOW_SUCCESS_ORDER = (By.XPATH, '//*[contains(@class,"Modal_modal__contentBox")]')
-    ORDER_FROM_FEED = (By.XPATH, '//*[@id="root"]/div/main/div/div/ul/li[1]')
-    NUMBER_OF_ORDER = (By.XPATH, '//*[@id ="root"]/div/section/div[1]/div/h2')
-    # CLOSE_ORDER_WINDOW = (By.XPATH, '//*[@id="root"]/div/section/div[1]/button')
+    NUMBER_OF_ORDER = (By.XPATH, '//*[contains(@class,"Modal_modal__title_shadow")]')
     CLOSE_ORDER_WINDOW = (By.XPATH, '//button[contains(@Class,"Modal_modal__close_modified")]')
-    NUMBER_ORDER_IN_FEED = (By.XPATH, '//*[@id="root"]/div/main/div/div/ul/li[2]/a/div[1]/p[1]')
-    NUMBER_ORDER_IN_HISTORY = (By.XPATH, '//*[@id="root"]/div/main/div/div/div/ul/li[last()]/a/div[1]/p[1]')
+    NUMBER_ORDER_IN_HISTORY = (By.XPATH, '//*[@class="OrderHistory_profileList__374GU OrderHistory_list__KcLDB"]/child::*[last()]/descendant::*[@class="text text_type_digits-default"]')
     COUNTER_FOR_ALL_TIME = (By.XPATH, '//*[contains(@Class,"OrderFeed_number")]')
-   # COUNTER_ORDER_TODAY = (By.XPATH, '//*[@id ="root"]/div/main/div/div/div/div[3]/p[2]')
     COUNTER_ORDER_TODAY = (By.XPATH, '//*[contains(@Class, "text text_type_main-medium") and text()="Выполнено за сегодня:"]/following-sibling::*[contains(@Class,"OrderFeed_number")]')
-   # NUMBER_OF_ORDER_IN_WORK = (By.XPATH, '//*[@id="root"]/div/main/div/div/div/div[1]/ul[2]/li')
     NUMBER_OF_ORDER_IN_WORK = (By.XPATH, '//*[@class="text text_type_digits-default mb-2"]/ancestor::*[@class="OrderFeed_orderListReady__1YFem OrderFeed_orderList__cBvyi"]')
 
 class ConstructorLocators:
     LIST_ORDER = By.XPATH, '//*[@Class="text text_type_digits-default"]'
-    CROSS = (By.XPATH, '//*[@id="root"]/div/section[2]/div[1]/button')
-    INGREDIENT = (By.XPATH, '//*[@id="root"]/div/main/section[1]/div[2]/ul[2]/a[2]/img')
-    CONSTRUCTOR = (By.XPATH, '//*[@id="root"]/div/main/section[2]/ul/li[1]/div/span/span[1]')
-    # COUNTER = (By.XPATH, '//*[@id="root"]/div/main/section[1]/div[2]/ul[2]/a[2]/div[1]/p')
-    COUNTER = (By.XPATH, '//*[contains(@class,"BurgerIngredient_ingredient") and (@href="/ingredient/61c0c5a71d1f82001bdaaa6c")]/descendant::*[contains(@class,"counter_counter")]')
-    # BUNS = (By.XPATH, '//*[@id="root"]/div/main/section[1]/div[2]/ul[1]/a[2]/img')
+    CROSS = (By.XPATH, '//*[@class="Modal_modal_opened__3ISw4 Modal_modal__P3_V5"]/descendant::button[@class="Modal_modal__close_modified__3V5XS Modal_modal__close__TnseK"]')
+    INGREDIENT = (By.XPATH, '//img[@alt="Соус фирменный Space Sauce"]')
+    CONSTRUCTOR = (By.XPATH, '//*[text()="Перетяните булочку сюда (верх)"]')
+    COUNTER = (By.XPATH, '//*[contains(@class,"BurgerIngredient_ingredient") and (@href="/ingredient/61c0c5a71d1f82001bdaaa73")]/descendant::*[contains(@class,"counter_counter__num")]')
     BUNS = (By.XPATH,'//*[@class="counter_counter__ZNLkj counter_default__28sqi"]/ancestor::*[@href="/ingredient/61c0c5a71d1f82001bdaaa6c"]')
+    FIND_NUMBER_OF_ORDER = (By.XPATH, '//*[contains(text(),"151")]')

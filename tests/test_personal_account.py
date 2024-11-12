@@ -1,3 +1,5 @@
+import time
+
 import allure
 from data import Urls
 from locators import MainPageLocators
@@ -10,7 +12,8 @@ class TestPersonalAccount:
         transition = MainPage(driver)
         transition.transition_to_personal_account()
         transition.select_password_field()
-        assert driver.current_url == Urls.PERSONAL_ACCOUNT
+        current_url = transition.check_url(driver)
+        assert current_url == Urls.PERSONAL_ACCOUNT
 
     @allure.title('Проверка перехода на страницу "История заказов')
     @allure.description('переход в раздел «История заказов»')
@@ -21,7 +24,8 @@ class TestPersonalAccount:
         transition.login()
         transition.transition_to_personal_account()
         transition.transition_to_history()
-        assert driver.current_url == Urls.HISTORY_ORDER
+        current_url = transition.check_url(driver)
+        assert current_url == Urls.HISTORY_ORDER
 
     @allure.title('Проверка выхода из аккаунта')
     @allure.description('выход из аккаунта')
@@ -32,6 +36,6 @@ class TestPersonalAccount:
         transition.login()
         transition.transition_to_personal_account()
         transition.logout()
-        transition.find_element_logout()
-        assert driver.current_url == Urls.PERSONAL_ACCOUNT
+        current_url = transition.check_url(driver)
+        assert current_url == Urls.PERSONAL_ACCOUNT
 

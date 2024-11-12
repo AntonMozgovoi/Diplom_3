@@ -1,7 +1,5 @@
 import time
-
 import allure
-
 from pages.constructor_page import Constructor
 
 
@@ -21,14 +19,12 @@ class TestOrderFeed:
         display_order = Constructor(driver)
         display_order.authtorisation()
         display_order.make_order_flow(driver)
-        time.sleep(3)
+        display_order.wait_number_element()
         display_order.close_order_window()
         display_order.transition_to_pers_acc()
         display_order.transition_to_history()
         number_in_history = display_order.get_number_of_order_in_history()
-        time.sleep(3)
         display_order.transition_to_order_list()
-        time.sleep(5)
         list_feed = display_order.get_list_from_feed(driver)
         assert number_in_history in list_feed
 
@@ -41,7 +37,7 @@ class TestOrderFeed:
         first_number = at_counter.get_main_counter()
         at_counter.transition_to_constructor()
         at_counter.make_order_flow(driver)
-        time.sleep(5)
+        at_counter.wait_number_element()
         at_counter.close_order_window()
         at_counter.transition_to_order_list()
         second_number = at_counter.get_main_counter()
@@ -56,7 +52,7 @@ class TestOrderFeed:
         first_number = today_counter.get_day_counter()
         today_counter.transition_to_constructor()
         today_counter.make_order_flow(driver)
-        time.sleep(5)
+        today_counter.wait_number_element()
         today_counter.close_order_window()
         today_counter.transition_to_order_list()
         second_number = today_counter.get_day_counter()
@@ -68,10 +64,9 @@ class TestOrderFeed:
         in_work = Constructor(driver)
         in_work.authtorisation()
         in_work.make_order_flow(driver)
-        time.sleep(5)
+        in_work.wait_number_element()
         number = in_work.get_number_of_order()
         in_work.close_order_window()
         in_work.transition_to_order_list()
-        time.sleep(5)
         order = in_work.get_number_order_in_work()
         assert number == order
