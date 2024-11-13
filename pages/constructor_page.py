@@ -2,29 +2,29 @@ import allure
 from selenium.webdriver import ActionChains
 from conftest import driver
 from data import TestData
-from locators import Header, OrderFeed, MainPageLocators, ConstructorLocators
+from locators import ConstructorLocators
 from pages.base_page import BasePage
 
 
 class Constructor(BasePage):
     @allure.step("переход на страницу конструктор")
     def transition_to_constructor(self):
-        const = self.wait_and_find_element(Header.CONSTRUCTOR)
+        const = self.wait_and_find_element(ConstructorLocators.CONSTRUCTOR_MAIN)
         const.click()
 
     @allure.step("переход на страницу заказов")
     def transition_to_order_list(self):
-        order_list = self.wait_and_find_element(Header.ORDER_LIST)
+        order_list = self.wait_and_find_element(ConstructorLocators.ORDER_LIST)
         order_list.click()
 
     @allure.step("выбор заказа из ленты заказов")
     def select_order_from_feed(self):
-        order = self.wait_and_find_element(OrderFeed.ORDER_IN_HISTORY)
+        order = self.wait_and_find_element(ConstructorLocators.ORDER_IN_HISTORY)
         order.click()
 
     @allure.step("получение окна заказа")
     def get_window(self):
-        modal_window = self.wait_and_find_element(OrderFeed.MODAL_WINDOW)
+        modal_window = self.wait_and_find_element(ConstructorLocators.MODAL_WINDOW)
         return modal_window
 
     @allure.step("закрытие окна")
@@ -46,13 +46,13 @@ class Constructor(BasePage):
 
     @allure.step("Авторизация")
     def authtorisation(self):
-        auth = self.wait_and_find_element(MainPageLocators.ENTER_ACCOUNT)
+        auth = self.wait_and_find_element(ConstructorLocators.ENTER_ACCOUNT)
         auth.click()
-        email = self.wait_and_find_element(MainPageLocators.FIELD_AUTH_EMAIL)
-        password = self.wait_and_find_element(MainPageLocators.PASSWORD_AUTH_PASS)
+        email = self.wait_and_find_element(ConstructorLocators.FIELD_AUTH_EMAIL)
+        password = self.wait_and_find_element(ConstructorLocators.PASSWORD_AUTH_PASS)
         email.send_keys(TestData.EMAIL_ADRESS)
         password.send_keys(TestData.PASSWORD)
-        auth = self.wait_and_find_element(MainPageLocators.BUTTON_LOGIN)
+        auth = self.wait_and_find_element(ConstructorLocators.BUTTON_LOGIN)
         auth.click()
 
     @allure.step("добваление булок")
@@ -64,22 +64,22 @@ class Constructor(BasePage):
 
     @allure.step("Клик по кнопке заказа")
     def click_button_order(self):
-        order = self.wait_and_find_element(OrderFeed.BUTTON_ORDER)
+        order = self.wait_and_find_element(ConstructorLocators.BUTTON_ORDER)
         order.click()
 
     @allure.step("Получение успешного заказа")
     def get_success_order(self):
-        order = self.wait_and_find_element(OrderFeed.WINDOW_SUCCESS_ORDER)
+        order = self.wait_and_find_element(ConstructorLocators.WINDOW_SUCCESS_ORDER)
         return order
 
     @allure.step("Переход на страницу аккаунта")
     def transition_to_pers_acc(self):
-        personal_account = self.wait_and_find_element(MainPageLocators.PERSONAL_ACCOUNT)
+        personal_account = self.wait_and_find_element(ConstructorLocators.PERSONAL_ACCOUNT)
         personal_account.click()
 
     @allure.step("Переход на страницу истории")
     def transition_to_history(self):
-        history = self.wait_and_find_element(MainPageLocators.HISTORY_ORDER_LINK)
+        history = self.wait_and_find_element(ConstructorLocators.HISTORY_ORDER_LINK)
         history.click()
 
     @allure.step("Флоу заказа")
@@ -88,23 +88,23 @@ class Constructor(BasePage):
         constructor = self.wait_and_find_element(ConstructorLocators.CONSTRUCTOR)
         action_chains = ActionChains(driver)
         action_chains.drag_and_drop(sauce, constructor).perform()
-        click_order = self.wait_and_find_element(OrderFeed.BUTTON_ORDER)
+        click_order = self.wait_and_find_element(ConstructorLocators.BUTTON_ORDER)
         click_order.click()
         self.wait_and_find_element(ConstructorLocators.CROSS)
 
     @allure.step("Получение номера заказа")
     def get_number_of_order(self):
-        number_of_order = self.wait_and_find_element(OrderFeed.NUMBER_OF_ORDER).text
+        number_of_order = self.wait_and_find_element(ConstructorLocators.NUMBER_OF_ORDER).text
         return int(number_of_order)
 
     @allure.step("Закрытие окна заказа")
     def close_order_window(self):
-        close = self.wait_and_find_element(OrderFeed.CLOSE_ORDER_WINDOW)
+        close = self.wait_and_find_element(ConstructorLocators.CLOSE_ORDER_WINDOW)
         close.click()
 
     @allure.step("Получение номера заказа из истории заказаов")
     def get_number_of_order_in_history(self):
-        number_history = self.wait_and_find_element(OrderFeed.NUMBER_ORDER_IN_HISTORY).text
+        number_history = self.wait_and_find_element(ConstructorLocators.NUMBER_ORDER_IN_HISTORY).text
         return number_history
 
     @allure.step("создание списка номеров заказов за всё время")
@@ -116,17 +116,17 @@ class Constructor(BasePage):
 
     @allure.step("получение счётчика заказов за всё время")
     def get_main_counter(self):
-        first_counter = self.wait_and_find_element(OrderFeed.COUNTER_FOR_ALL_TIME).text
+        first_counter = self.wait_and_find_element(ConstructorLocators.COUNTER_FOR_ALL_TIME).text
         return int(first_counter)
 
     @allure.step("получение счётчика заказов за день")
     def get_day_counter(self):
-        second_counter = self.wait_and_find_element(OrderFeed.COUNTER_ORDER_TODAY).text
+        second_counter = self.wait_and_find_element(ConstructorLocators.COUNTER_ORDER_TODAY).text
         return int(second_counter)
 
     @allure.step("получение номера заказа в работе")
     def get_number_order_in_work(self):
-        in_work = self.wait_and_find_element(OrderFeed.NUMBER_OF_ORDER_IN_WORK).text
+        in_work = self.wait_and_find_element(ConstructorLocators.NUMBER_OF_ORDER_IN_WORK).text
         return int(in_work)
 
     @allure.step("ожидание номера заказа")

@@ -56,4 +56,4 @@ class TestConstructor:
         order_flow.constructor_count(driver)
         order_flow.click_button_order()
         order = order_flow.get_success_order()
-        assert order.is_displayed
+        assert order.is_displayed()

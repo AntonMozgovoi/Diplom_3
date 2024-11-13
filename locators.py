@@ -16,7 +16,7 @@ class MainPageLocators:
     INPUT_PASSWORD_FIELD = (By.NAME, "Пароль")
 
 class Header:
-    CONSTRUCTOR = (By.XPATH, '//*[text()="Конструктор"]')
+    CONSTRUCTOR_MAIN = (By.XPATH, '//*[text()="Конструктор"]')
     ORDER_LIST = (By.XPATH, '//*[text()="Лента Заказов"]')
 
 class OrderFeed:
@@ -40,3 +40,21 @@ class ConstructorLocators:
     COUNTER = (By.XPATH, '//*[contains(@class,"BurgerIngredient_ingredient") and (@href="/ingredient/61c0c5a71d1f82001bdaaa73")]/descendant::*[contains(@class,"counter_counter__num")]')
     BUNS = (By.XPATH,'//*[@class="counter_counter__ZNLkj counter_default__28sqi"]/ancestor::*[@href="/ingredient/61c0c5a71d1f82001bdaaa6c"]')
     FIND_NUMBER_OF_ORDER = (By.XPATH, '//*[contains(text(),"151")]')
+    ORDER_IN_HISTORY = (By.XPATH, '//*[@class="OrderFeed_list__OLh59"]/child::*[1]')
+    CONSTRUCTOR_MAIN = (By.XPATH, '//*[text()="Конструктор"]')
+    ORDER_LIST = (By.XPATH, '//*[text()="Лента Заказов"]')
+    MODAL_WINDOW = (By.XPATH, '//*[contains(@Class, "Modal_orderBox")]')
+    ENTER_ACCOUNT = (By.XPATH, '//button[text()="Войти в аккаунт"]')
+    FIELD_AUTH_EMAIL = (By.XPATH, '//*[@name="name"]')
+    PASSWORD_AUTH_PASS = (By.XPATH, '//*[@name="Пароль"]')
+    BUTTON_LOGIN = (By.XPATH, '//button[text()="Войти"]')
+    BUTTON_ORDER = (By.XPATH, '//button[text()="Оформить заказ"]')
+    WINDOW_SUCCESS_ORDER = (By.XPATH, '//*[contains(@class,"Modal_modal__contentBox")]')
+    PERSONAL_ACCOUNT = (By.XPATH, '//*[contains(@Class, "AppHeader_header__linkText") and text()="Личный Кабинет"]')
+    HISTORY_ORDER_LINK = (By.XPATH, '//*[text()="История заказов"]')
+    NUMBER_OF_ORDER = (By.XPATH, '//*[contains(@class,"Modal_modal__title_shadow")]')
+    CLOSE_ORDER_WINDOW = (By.XPATH, '//button[contains(@Class,"Modal_modal__close_modified")]')
+    NUMBER_ORDER_IN_HISTORY = (By.XPATH, '//*[@class="OrderHistory_profileList__374GU OrderHistory_list__KcLDB"]/child::*[last()]/descendant::*[@class="text text_type_digits-default"]')
+    COUNTER_ORDER_TODAY = (By.XPATH, '//*[contains(@Class, "text text_type_main-medium") and text()="Выполнено за сегодня:"]/following-sibling::*[contains(@Class,"OrderFeed_number")]')
+    COUNTER_FOR_ALL_TIME = (By.XPATH, '//*[contains(@Class,"OrderFeed_number")]')
+    NUMBER_OF_ORDER_IN_WORK = (By.XPATH, '//*[@class="text text_type_digits-default mb-2"]/ancestor::*[@class="OrderFeed_orderListReady__1YFem OrderFeed_orderList__cBvyi"]')
