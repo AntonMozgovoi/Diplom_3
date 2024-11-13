@@ -1,4 +1,3 @@
-import time
 import allure
 from pages.constructor_page import Constructor
 
