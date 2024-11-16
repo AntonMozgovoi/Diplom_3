@@ -31,5 +31,5 @@ class TestLogoScooter:
         field = MainPage(driver)
         field.transition_to_account()
         field.select_password_field()
-        input_field = field.get_type(driver)
+        input_field = field.get_type()
         assert input_field.get_attribute('type') == 'text'

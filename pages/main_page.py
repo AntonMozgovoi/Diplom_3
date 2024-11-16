@@ -1,5 +1,4 @@
 import allure
-from selenium.webdriver.common.by import By
 from data import TestData
 from pages.base_page import BasePage
 from locators import MainPageLocators
@@ -67,7 +66,7 @@ class MainPage(BasePage):
     def find_element_logout(self):
         self.wait_and_find_element(MainPageLocators.BUTTON_LOGIN)
 
-    def get_type(self, driver):
-        get_input = driver.find_element(By.NAME, "Пароль")
+    def get_type(self):
+        get_input = self.wait_and_find_element(MainPageLocators.INPUT_PASSWORD_FIELD)
         return get_input
 
