@@ -1,3 +1,4 @@
+from selenium.webdriver import ActionChains
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 
@@ -17,6 +18,9 @@ class BasePage:
     def check_url(self, driver):
         url = driver.current_url
         return url
+    def drag_and_drop(self, locator_frs, locator_sec):
+        action_chains = ActionChains(self.driver)
+        action_chains.drag_and_drop(locator_frs, locator_sec).perform()
 
 
 

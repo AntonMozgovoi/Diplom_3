@@ -1,8 +1,5 @@
-import time
-
 import allure
 from data import Urls
-from locators import MainPageLocators
 from pages.main_page import MainPage
 
 class TestPersonalAccount:

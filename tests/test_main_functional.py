@@ -43,7 +43,7 @@ class TestConstructor:
     @allure.description('при добавлении ингредиента в заказ, увеличивается каунтер данного ингредиента')
     def test_add_count(self, driver):
         window = Constructor(driver)
-        window.constructor_count(driver)
+        window.constructor_count()
         count = window.get_counter()
         assert count == '1'
 
@@ -52,8 +52,8 @@ class TestConstructor:
     def test_order_flow(self, driver):
         order_flow = Constructor(driver)
         order_flow.authtorisation()
-        order_flow.add_buns(driver)
-        order_flow.constructor_count(driver)
+        order_flow.add_buns()
+        order_flow.constructor_count()
         order_flow.click_button_order()
         order = order_flow.get_success_order()
         assert order.is_displayed()

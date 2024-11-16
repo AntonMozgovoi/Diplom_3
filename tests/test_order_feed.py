@@ -17,14 +17,14 @@ class TestOrderFeed:
     def test_history_in_order_feed(self, driver):
         display_order = Constructor(driver)
         display_order.authtorisation()
-        display_order.make_order_flow(driver)
+        display_order.make_order_flow()
         display_order.wait_number_element()
         display_order.close_order_window()
         display_order.transition_to_pers_acc()
         display_order.transition_to_history()
         number_in_history = display_order.get_number_of_order_in_history()
         display_order.transition_to_order_list()
-        list_feed = display_order.get_list_from_feed(driver)
+        list_feed = display_order.get_list_from_feed()
         assert number_in_history in list_feed
 
     @allure.title('Проверка счётчик Выполнено за всё время')
@@ -35,7 +35,7 @@ class TestOrderFeed:
         at_counter.transition_to_order_list()
         first_number = at_counter.get_main_counter()
         at_counter.transition_to_constructor()
-        at_counter.make_order_flow(driver)
+        at_counter.make_order_flow()
         at_counter.wait_number_element()
         at_counter.close_order_window()
         at_counter.transition_to_order_list()
@@ -50,7 +50,7 @@ class TestOrderFeed:
         today_counter.transition_to_order_list()
         first_number = today_counter.get_day_counter()
         today_counter.transition_to_constructor()
-        today_counter.make_order_flow(driver)
+        today_counter.make_order_flow()
         today_counter.wait_number_element()
         today_counter.close_order_window()
         today_counter.transition_to_order_list()
@@ -62,7 +62,7 @@ class TestOrderFeed:
     def test_order_in_work(self, driver):
         in_work = Constructor(driver)
         in_work.authtorisation()
-        in_work.make_order_flow(driver)
+        in_work.make_order_flow()
         in_work.wait_number_element()
         number = in_work.get_number_of_order()
         in_work.close_order_window()

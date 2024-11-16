@@ -1,6 +1,4 @@
 import allure
-from selenium.webdriver import ActionChains
-from conftest import driver
 from data import TestData
 from locators import ConstructorLocators
 from pages.base_page import BasePage
@@ -33,11 +31,10 @@ class Constructor(BasePage):
         close_icon.click()
 
     @allure.step("Формирвание бургера")
-    def constructor_count(self, driver):
+    def constructor_count(self):
         sauce = self.wait_and_find_element(ConstructorLocators.INGREDIENT)
         constructor = self.wait_and_find_element(ConstructorLocators.CONSTRUCTOR)
-        action_chains = ActionChains(driver)
-        action_chains.drag_and_drop(sauce, constructor).perform()
+        self.drag_and_drop(sauce, constructor)
 
     @allure.step("Получение счётчика")
     def get_counter(self):
@@ -56,11 +53,10 @@ class Constructor(BasePage):
         auth.click()
 
     @allure.step("добваление булок")
-    def add_buns(self, driver):
+    def add_buns(self):
         sauce = self.wait_and_find_element(ConstructorLocators.BUNS)
         constructor = self.wait_and_find_element(ConstructorLocators.CONSTRUCTOR)
-        action_chains = ActionChains(driver)
-        action_chains.drag_and_drop(sauce, constructor).perform()
+        self.drag_and_drop(sauce, constructor)
 
     @allure.step("Клик по кнопке заказа")
     def click_button_order(self):
@@ -83,11 +79,10 @@ class Constructor(BasePage):
         history.click()
 
     @allure.step("Флоу заказа")
-    def make_order_flow(self, driver):
+    def make_order_flow(self):
         sauce = self.wait_and_find_element(ConstructorLocators.BUNS)
         constructor = self.wait_and_find_element(ConstructorLocators.CONSTRUCTOR)
-        action_chains = ActionChains(driver)
-        action_chains.drag_and_drop(sauce, constructor).perform()
+        self.drag_and_drop(sauce, constructor)
         click_order = self.wait_and_find_element(ConstructorLocators.BUTTON_ORDER)
         click_order.click()
         self.wait_and_find_element(ConstructorLocators.CROSS)
@@ -108,7 +103,7 @@ class Constructor(BasePage):
         return number_history
 
     @allure.step("создание списка номеров заказов за всё время")
-    def get_list_from_feed(self, driver):
+    def get_list_from_feed(self):
         list_oder_feed = []
         for element in self.wait_and_find_elements(ConstructorLocators.LIST_ORDER):
             list_oder_feed.append(element.text)
