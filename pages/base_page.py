@@ -1,0 +1,27 @@
+from selenium.webdriver import ActionChains
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions
+
+
+class BasePage:
+    def __init__(self, driver):
+        self.driver = driver
+
+    def wait_and_find_element(self, locator):     # прогрузка элемента и его нахождение
+        WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located(locator))
+        return self.driver.find_element(*locator)
+
+    def wait_and_find_elements(self, locator):
+        WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located(locator))
+        return self.driver.find_elements(*locator)
+
+    def check_url(self, driver):
+        url = driver.current_url
+        return url
+    def drag_and_drop(self, locator_frs, locator_sec):
+        action_chains = ActionChains(self.driver)
+        action_chains.drag_and_drop(locator_frs, locator_sec).perform()
+
+
+
+
